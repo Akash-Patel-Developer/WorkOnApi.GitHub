@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: gray;
+        }
+        .wrapper{
+            border: 2px solid red;
+            width: 50%;
+            padding: 1rem;
+            text-align: center;
+            margin: auto;
+            margin-top: 30%;
+            background-color: white;
+        }
+        .wrapper .quote{
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .wrapper .author{
+            margin-top: 1rem;
+            font-size: 22px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #ea53ea;
+        }
+        .wrapper button{
+            margin-top: 1rem;
+            width: 10rem;
+            height: 4rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 26px;
+            color: white;
+            background-color: royalblue;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        .wrapper button:active{
+            transform: translate(2px , 2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="quote">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit rem ducimus soluta officia, excepturi commodi quas possimus harum ratione eaque esse nobis, quam voluptatem molestiae dignissimos odio veritatis quibusdam fugiat.
+        </div>
+        <div class="author">Akash Patel</div>
+        <button class="btn">Generate</button>
+    </div>
+    <script>
+        let quote = document.querySelector(".quote");
+        let author = document.querySelector(".author");
+        let btn = document.querySelector(".btn");
+        let url = '"https://type.fit/api/quotes"';
+        
+        let getQuote = ()=>{
+            fetch("https://api.quotable.io/random")
+             .then(function(response) {
+              return response.json();
+               })
+             .then(function(data) {
+              quote.textContent = `${data.content}`;
+              author.textContent = `${data.author}`;
+             });
+        }
+        btn.addEventListener('click',()=>{
+            getQuote();
+        });
+    </script>
+</body>
+</html>

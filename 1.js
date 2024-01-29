@@ -1,4 +1,4 @@
-const url = 'https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Dark,Spooky,Christmas?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
+const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/hello';
 
 let joke = document.querySelector(".Joke");
 let btn = document.querySelector("button");
